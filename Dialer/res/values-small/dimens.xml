@@ -1,0 +1,133 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="horizontal_margin">12dp</dimen>
+    <dimen name="vertical_margin">12dp</dimen>
+
+    <!-- User Registration Confirmation Screen. -->
+    <dimen name="padding_margins_user_registration">15dp</dimen>
+    <dimen name="padding_user_registration_side_margins">12dp</dimen>
+    <dimen name="margins_info_country_phone_top_bottom">7dp</dimen>
+    <dimen name="user_registration_info_country_phone_text_size">12dp</dimen>
+    <dimen name="user_registrationpadding_ok_button">7dp</dimen>
+
+    <!-- splash Screen. -->
+    <dimen name="padding_margins_splash">15dp</dimen>
+    <dimen name="pager_height">40dp</dimen>
+    <dimen name="text_top_margin">32dp</dimen>
+    <dimen name="info_text_side_margins">24dp</dimen>
+    <dimen name="info_top_bottom_margins">16dp</dimen>
+    <dimen name="top_margin">7dp</dimen>
+    <dimen name="info_side_margins">3dp</dimen>
+    <dimen name="splash_text_top_margin">32dp</dimen>
+    <dimen name="splash_info_text_side_margins">24dp</dimen>
+    <dimen name="splash_logo_margin_bottom">32dp</dimen>
+    <dimen name="splash_logo_margin_top">40dp</dimen>
+    <dimen name="splash_info_top_bottom_margins">32dp</dimen>
+    <dimen name="splash_top_margin">7dp</dimen>
+    <dimen name="splash_info_side_margins">3dp</dimen>
+    <dimen name="splash_info_text_size">14dp</dimen>
+    <dimen name="splash_desc_text_size">11dp</dimen>
+
+    <!-- User Chat Or Home Screen. -->
+    <dimen name="padding_list_item">16dp</dimen>
+    <dimen name="padding_status_item">9dp</dimen>
+    <dimen name="padding_message_item">3dp</dimen>
+    <dimen name="padding_unread_count">7dp</dimen>
+    <dimen name="time_unread_text_size">5dp</dimen>
+    <dimen name="chat_name_text_size">12dp</dimen>
+    <dimen name="chat_last_mesage_text_size">11dp</dimen>
+
+    <!-- Categories Screen. -->
+    <dimen name="padding_category_item">16dp</dimen>
+    <dimen name="padding_description_item">9dp</dimen>
+    <dimen name="category_name_text_size">12dp</dimen>
+    <dimen name="category_description_text_size">11dp</dimen>
+
+    <!-- Items Screen. -->
+    <dimen name="padding_item_item">16dp</dimen>
+    <dimen name="padding_item_description_item">9dp</dimen>
+    <dimen name="item_name_text_size">12dp</dimen>
+    <dimen name="padding_rating_item">3dp</dimen>
+    <dimen name="item_description_text_size">10dp</dimen>
+    <dimen name="item_dist_text_size">8dp</dimen>
+    <dimen name="padding_rating_count">3dp</dimen>
+
+    <!-- Progress bar. -->
+    <dimen name="height_width">40dp</dimen>
+
+    <!-- Phone num dialog. -->
+    <dimen name="text_size">12dp</dimen>
+    <dimen name="text_top_bottom_margin">16dp</dimen>
+    <dimen name="dialog_padding_top_bottom">16dp</dimen>
+    <dimen name="dialog_padding_sides">7dp</dimen>
+
+    <!-- User registration confirmation screen. -->
+    <dimen name="padding_user_confirm">16dp</dimen>
+    <dimen name="padding_user_confirm_text_size">12dp</dimen>
+    <dimen name="activity_user_registration_confirmation_info_top_margins">16dp</dimen>
+    <dimen name="activity_user_registration_confirmation_info_bottom_margins">20dp</dimen>
+    <dimen name="padding_user_registration_confirm_side_margins">12dp</dimen>
+    <dimen name="activity_user_registration_confirmation_didntgetcode_top_margin">24dp</dimen>
+    <dimen name="activity_user_registration_confirmation_wrong_number_text_top_margin">25dp</dimen>
+
+    <!-- Profile name edit. -->
+    <dimen name="padding_user_name_edit">16dp</dimen>
+    <dimen name="user_name_edit_text_size">12dp</dimen>
+    <dimen name="padding_user_name_edit_side_margins">12dp</dimen>
+
+    <!-- Vendor bussiness registration screen. -->
+    <dimen name="padding_vendor_registration">16dp</dimen>
+    <dimen name="vendor_registration_text_size">12dp</dimen>
+    <dimen name="vendor_registration_side_margins">7dp</dimen>
+    <dimen name="vendor_registration_button_top_margin">20dp</dimen>
+    <dimen name="padding_vendor_registration_button">16dp</dimen>
+
+    <!-- New User home screen. -->
+    <dimen name="padding_new_user_home_screen">16dp</dimen>
+    <dimen name="padding_new_user_home_screen_heading_text_size">16dp</dimen>
+    <dimen name="padding_new_user_home_screen_info_text_size">12dp</dimen>
+    <dimen name="padding_new_user_home_screen_button_text_size">11dp</dimen>
+    <dimen name="padding_new_user_home_screen_margin_top">7dp</dimen>
+
+    <!-- Verification success dialog. -->
+    <dimen name="padding_verification_success_dialog">16dp</dimen>
+    <dimen name="verification_success_dialog_text_size">14dp</dimen>
+
+    <!-- Verification pending screen. -->
+    <dimen name="padding_verification_pending_screen">16dp</dimen>
+    <dimen name="verification_pending_screen_heading_text_size">12dp</dimen>
+    <dimen name="verification_pending_screen_text_top_margin">20dp</dimen>
+    <dimen name="verification_pending_screen_text_left_margin">6dp</dimen>
+    <dimen name="verification_pending_screen_desc_left_margin">11dp</dimen>
+
+    <!-- User profile screen. -->
+    <dimen name="padding_using_profile_screen">16dp</dimen>
+    <dimen name="padding_using_profile_screen_name_top">9dp</dimen>
+    <dimen name="padding_using_profile_screen_name">7dp</dimen>
+    <dimen name="using_profile_screen_name_text_size">15dp</dimen>
+    <dimen name="using_profile_screen_info_text_size">12dp</dimen>
+
+    <!-- User Settings screen. -->
+    <dimen name="padding_using_settings_screen">16dp</dimen>
+    <dimen name="using_settings_screen_text_size">12dp</dimen>
+    <dimen name="using_settings_screen_text_margin">11dp</dimen>
+
+    <!-- Vendor profile and chat screen. -->
+    <dimen name="padding_chat_screen">16dp</dimen>
+    <dimen name="padding_left_chat_screen">7dp</dimen>
+    <dimen name="chat_text_size">12dp</dimen>
+    <dimen name="chat_date_size">10dp</dimen>
+    <dimen name="chat_text_margin">11dp</dimen>
+
+    <!-- User Chat Row -->
+    <dimen name="padding_chat_row">3dp</dimen>
+    <dimen name="padding_left_right">40dp</dimen>
+    <dimen name="padding_size">9dp</dimen>
+    <dimen name="padding_layout">3dp</dimen>
+    <dimen name="chat_time_text_size">7dp</dimen>
+    <dimen name="padding_img_height_width">160dp</dimen>
+    
+    <dimen name="menu_pic_width_height">60dp</dimen>
+
+</resources>
