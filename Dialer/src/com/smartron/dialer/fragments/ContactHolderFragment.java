@@ -3,7 +3,9 @@ package com.smartron.dialer.fragments;
 import java.util.ArrayList;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -16,11 +18,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.smartron.dialer.R;
+import com.smartron.dialer.activity.MainActivity;
 import com.smartron.dialer.adapter.COntactsListAdapter;
 import com.smartron.dialer.beans.ContactBeans;
 
@@ -28,11 +33,15 @@ import com.smartron.dialer.beans.ContactBeans;
  * A placeholder fragment containing a simple view.
  */
 public class ContactHolderFragment extends Fragment implements OnClickListener {
+	private static boolean mShowNumpad;
 	ArrayList<ContactBeans> mCallLogList;
+	private GridLayout mNumpadGridView;
 	private ListView mCallLogListView;
 	private COntactsListAdapter mCallLogAdapter;
 	Button btn[] = new Button[14];
-	EditText userinput;
+	ImageView mNumbapimageview;
+	AutoCompleteTextView userinput;
+	AutoCompleteTextView userinputName;
 	/**
 	 * The fragment argument representing the section number for this fragment.
 	 */
@@ -41,7 +50,9 @@ public class ContactHolderFragment extends Fragment implements OnClickListener {
 	/**
 	 * Returns a new instance of this fragment for the given section number.
 	 */
-	public static ContactHolderFragment newInstance(int sectionNumber) {
+	public static ContactHolderFragment newInstance(int sectionNumber,
+			boolean showNumPad) {
+		mShowNumpad = showNumPad;
 		ContactHolderFragment fragment = new ContactHolderFragment();
 		Bundle args = new Bundle();
 		args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -59,6 +70,9 @@ public class ContactHolderFragment extends Fragment implements OnClickListener {
 				container, false);
 		mCallLogList = new ArrayList<ContactBeans>();
 		mCallLogListView = (ListView) rootView.findViewById(R.id.contact_list);
+		userinputName = (AutoCompleteTextView) rootView
+				.findViewById(R.id.search_contact);
+		mNumpadGridView = (GridLayout) rootView.findViewById(R.id.call_numpad);
 		btn[0] = (Button) rootView.findViewById(R.id.button1);
 		btn[1] = (Button) rootView.findViewById(R.id.button2);
 		btn[2] = (Button) rootView.findViewById(R.id.button3);
@@ -71,7 +85,10 @@ public class ContactHolderFragment extends Fragment implements OnClickListener {
 		btn[9] = (Button) rootView.findViewById(R.id.button0);
 		btn[10] = (Button) rootView.findViewById(R.id.button);
 		btn[11] = (Button) rootView.findViewById(R.id.butto);
-		userinput = (EditText) rootView.findViewById(R.id.numberpadtext);
+		mNumbapimageview = (ImageView) rootView
+				.findViewById(R.id.call_button_image_view);
+		userinput = (AutoCompleteTextView) rootView
+				.findViewById(R.id.numberpadtext);
 		userinput.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -93,7 +110,36 @@ public class ContactHolderFragment extends Fragment implements OnClickListener {
 												0,
 												userinput.getText().toString()
 														.length() - 1));
-						userinput.setSelection(userinput.getText().toString().length());
+						userinput.setSelection(userinput.getText().toString()
+								.length());
+						return true;
+					}
+				}
+				return false;
+			}
+		});
+		userinputName.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				final int DRAWABLE_LEFT = 0;
+				final int DRAWABLE_TOP = 1;
+				final int DRAWABLE_RIGHT = 2;
+				final int DRAWABLE_BOTTOM = 3;
+
+				if (event.getAction() == MotionEvent.ACTION_UP) {
+					if (event.getRawX() >= (userinputName.getRight() - userinputName
+							.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds()
+							.width())) {
+						// your action here
+						userinputName.setText(userinputName
+								.getText()
+								.toString()
+								.substring(
+										0,
+										userinputName.getText().toString()
+												.length() - 1));
+						userinputName.setSelection(userinputName.getText()
+								.toString().length());
 						return true;
 					}
 				}
@@ -147,6 +193,30 @@ public class ContactHolderFragment extends Fragment implements OnClickListener {
 	}
 
 	@Override
+	public void onHiddenChanged(boolean hidden) {
+		if (mShowNumpad) {
+			mNumpadGridView.setVisibility(View.VISIBLE);
+			userinputName.setVisibility(View.GONE);
+		} else {
+			mNumpadGridView.setVisibility(View.GONE);
+			userinputName.setVisibility(View.VISIBLE);
+		}
+		super.onHiddenChanged(hidden);
+	}
+
+	@Override
+	public void onResume() {
+		if (MainActivity.mShowNumpad) {
+			mNumpadGridView.setVisibility(View.VISIBLE);
+			userinputName.setVisibility(View.GONE);
+		} else {
+			mNumpadGridView.setVisibility(View.GONE);
+			userinputName.setVisibility(View.VISIBLE);
+		}
+		super.onResume();
+	}
+
+	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.button1:
@@ -185,7 +255,16 @@ public class ContactHolderFragment extends Fragment implements OnClickListener {
 		case R.id.butto:
 			addtoarray("#");
 			break;
+		case R.id.call_button_image_view:
+			String numberString = userinput.getText().toString();
+			if (!numberString.equals("")) {
+				Uri number = Uri.parse("tel:" + numberString);
+				Intent dial = new Intent(Intent.ACTION_CALL, number);
+				startActivity(dial);
+			}
+			break;
 		default:
+
 			break;
 		}
 	}

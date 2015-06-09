@@ -4,8 +4,15 @@
     <color name="splash_bg">#244242</color>
     <!--
     <color name="action_bar_background">#c9222d</color> 
-    <color name="action_bar_background">#1db1f5</color>    <color name="action_bar_background">#2f4444</color>
+    <color name="action_bar_background">#1db1f5</color>    <color name="action_bar_background">#2f4444</color>
     -->
+    <color name="toolbar">#efefef</color>
+    <color name="toolbar_text">#8f000000</color>
+    <color name="accent">#2789e4</color>
+    <color name="event_color_01">#59dbe0</color>
+    <color name="event_color_02">#f57f68</color>
+    <color name="event_color_03">#87d288</color>
+    <color name="event_color_04">#f8b552</color>
     <color name="action_bar_background">#1cb0f6</color>
     <color name="status_bar_background">#0d99db</color>
     <color name="green_background">#88cf3c</color>

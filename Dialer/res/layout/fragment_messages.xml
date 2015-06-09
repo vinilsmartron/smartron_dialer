@@ -10,20 +10,11 @@
     tools:context="com.smartron.dialer.MainActivity$PlaceholderFragment" >
 
     <ListView
-        android:id="@+id/call_log_list"
+        android:id="@+id/messages_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:listSelector="@null"
         android:scrollbars="none" />
 
-
-    <ImageView
-        android:id="@+id/keypad_enable_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:elevation="2dp"
-        android:src="@drawable/telephone105" />
 
 </RelativeLayout>

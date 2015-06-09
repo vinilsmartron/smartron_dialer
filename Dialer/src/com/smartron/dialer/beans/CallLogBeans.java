@@ -5,6 +5,23 @@ import java.util.Date;
 public class CallLogBeans {
 
 	private String callername, callDuration, callType,callerContactId,callerNumber;
+	private int callmonth,callYear;
+	public int getCallmonth() {
+		return callmonth;
+	}
+
+	public void setCallmonth(int callmonth) {
+		this.callmonth = callmonth;
+	}
+
+	public int getCallYear() {
+		return callYear;
+	}
+
+	public void setCallYear(int callYear) {
+		this.callYear = callYear;
+	}
+
 	public String getCallerNumber() {
 		return callerNumber;
 	}

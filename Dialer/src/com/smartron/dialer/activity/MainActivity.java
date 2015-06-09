@@ -2,6 +2,7 @@ package com.smartron.dialer.activity;
 
 import java.util.Locale;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,13 +11,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.smartron.dialer.R;
 import com.smartron.dialer.fragments.ContactHolderFragment;
+import com.smartron.dialer.fragments.MessageHolderFragment;
 import com.smartron.dialer.fragments.PlaceHolderFragment;
 
+@SuppressWarnings("deprecation")
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
 
@@ -27,18 +31,24 @@ public class MainActivity extends ActionBarActivity implements
 	 * becomes too memory intensive, it may be best to switch to a
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
+	public static boolean mShowNumpad ;
 	SectionsPagerAdapter mSectionsPagerAdapter;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	ViewPager mViewPager;
+	public ViewPager mViewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		getIntent().getData();
+		Log.i("Intent data", ": " + getIntent().getData());
+		if (getIntent().getData() != null) {
+			Intent dial = new Intent(Intent.ACTION_CALL, getIntent().getData());
+			startActivity(dial);
+		}
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -122,6 +132,7 @@ public class MainActivity extends ActionBarActivity implements
 			super(fm);
 		}
 
+		@SuppressWarnings("static-access")
 		@Override
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
@@ -133,10 +144,11 @@ public class MainActivity extends ActionBarActivity implements
 				return new PlaceHolderFragment().newInstance(position + 1);
 			case 1:
 				// Need Reviews fragment activity
-				return new ContactHolderFragment().newInstance(position + 1);
+				return new ContactHolderFragment().newInstance(position + 1,
+						mShowNumpad);
 			case 2:
 				// Need contact fragment activity
-				return new PlaceHolderFragment().newInstance(position + 1);
+				return new MessageHolderFragment().newInstance(position + 1);
 			}
 			return null;
 
